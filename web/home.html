@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr_FR">
+
+<head>
+	<title>MailSpy</title>
+	<meta charset="utf-8" />
+	<meta name="description"
+		content="Nos pixels, votre information" />
+
+	<link rel="stylesheet" type="text/css" href="web/style.css"/>
+	<link rel="icon" type="image/png"
+		href="https://api.iconify.design/ic:baseline-mark-email-unread.svg?color=%23fafafa" />
+
+	<link rel="stylesheet" href="hljs/github-dark-dimmed.min.css" />
+	<script src="hljs/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+</head>
+
+<!-- Center body content with style -->
+<body>
+	<header>
+		🛑 Service en béta fermé
+	</header>
+
+	<noscript>
+		Erreur<br>
+		<span><span style="font-weight: bold;">JavaScript</span> à été désactivé</span><br>
+		<a href="https://www.enable-javascript.com/fr/" target="_blank" rel="noopener noreferrer">Régler le problème</a>
+	</noscript>
+
+	<h1>MailSpy</h1>
+	<p id="catch-phr">Nos pixels, votre information</p>
+	<div id="main">
+		<img id="illust" src="https://api.iconify.design/majesticons:contact.svg?color=%23fafafa" width="80"
+			height="80" />
+		<p id="step-title" style="margin-top: 0px">Informations</p>
+		<form id="form" onsubmit="return false">
+			<div>
+				<img id="gender-icon" src="https://api.iconify.design/ph:gender-male-bold.svg?color=%23ffffff" />
+				<select name="gender" id="gender" required>
+					<option value="m">Monsieur</option>
+					<option value="f">Madame</option>
+					<option value="x">Non-Binéaire</option>
+				</select>
+				<a id="select_arrow" onclick="document.getElementById('gender').click();"></a>
+			</div>
+			<div>
+				<img src="https://api.iconify.design/ph:identification-badge-fill.svg?color=%23ffffff" />
+				<input type="text" name="name" id="name" placeholder="Nom" required />
+			</div>
+			<div>
+				<img src="https://api.iconify.design/ph:textbox-fill.svg?color=%23ffffff" />
+				<input type="text" name="subject" id="subject" placeholder="Sujet du mail" />
+			</div>
+
+			<button>Générer</button>
+		</form>
+		<div id=generated class="hideen">
+			<p class="help">Copier le code dans votre mail</p>
+			<pre><code class="html">&lt;img src="https://mailspy.vercel.app/pixel?"/&gt;</code></pre>
+		</div>
+	</div>
+
+	<footer>
+		<div>
+			<p><a>Docs</a> - <a>Confidentialité</a> - <a>Vercel</a></p>
+		</div>
+		<p>MailSpy - By ValentinKhmer</p>
+	</footer>
+
+	<script type="text/javascript">
+		const form = document.querySelector("form");
+		form.addEventListener("submit", () => {
+			const formResults = {
+				gender: document.getElementById("gender").value,
+				name: document.getElementById("name").value,
+			};
+
+			if (document.getElementById("subject").value)
+				Object.assign(formResults, { subject: document.getElementById("subject").value });
+
+			form.remove();
+			document.getElementById("illust").src =
+				"https://api.iconify.design/ph:code-bold.svg?color=%23ffffff";
+			document.getElementById("step-title").innerHTML = "Code";
+			document.getElementById("generated").classList.remove("hideen");
+			document.getElementsByClassName("hljs-string")[0].innerHTML =
+				`https://mailspy.vercel.app/pixel?${Object.entries(formResults)
+					.map(([key, value]) => `${key}=${value}`)
+					.join("&")}`;
+		});
+
+		document.getElementById("gender").addEventListener("change", () => {
+			const icons = {
+				m: "https://api.iconify.design/ph:gender-male-bold.svg?color=%23ffffff",
+				f: "https://api.iconify.design/ph:gender-female-bold.svg?color=%23ffffff",
+				x: "https://api.iconify.design/ph:gender-nonbinary-bold.svg?color=%23ffffff",
+			};
+			document.getElementById("gender-icon").src =
+				icons[document.getElementById("gender").value];
+		});
+
+		document.getElementById("select_arrow").addEventListener("click", () => {
+			document.getElementById("gender").click();
+		});
+	</script>
+</body>
+
+</html>

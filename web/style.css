@@ -1,0 +1,211 @@
+header {
+	background-color: #ff5858;
+	color: white;
+	position: absolute;
+	top: 3%;
+	width: auto;
+	padding: 10px;
+	border-radius: 1rem;
+}
+
+noscript {
+	color: white;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	background-color: #ff5858;
+	z-index: 1;
+	font-size: xx-large;
+	text-align: center;
+	padding-top: 20%;
+}
+
+noscript > span {
+	font-size: 1.15rem;
+}
+
+noscript > a {
+	font-size: 1rem;
+	font-style: italic;
+}
+
+body {
+	font-family: "Cascadia Mono", sans-serif;
+	background: url(https://images.unsplash.com/photo-1531297484001-80022131f5a1)
+		no-repeat center center;
+	background-size: 100% 100%;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	height: 100%;
+	color: white;
+	height: 100vh;
+	width: 100%;
+}
+
+body > h1 {
+	font-size: 3rem;
+	margin-bottom: 0;
+}
+
+#catch-phr {
+	text-shadow: black 0px 0px 10px;
+	margin-bottom: 20px;
+}
+
+#main {
+	color: white;
+	background: rgba(82, 113, 255, 0.9);
+	background: linear-gradient(
+		135deg,
+		rgba(82, 113, 255, 0.9) 0%,
+		rgba(0, 74, 173, 0.9) 100%
+	);
+	padding: 1.5rem;
+	padding-top: 0.5rem;
+	border-radius: 0.5rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	box-shadow: #333 0px 0px 10px;
+	width: auto;
+	height: auto;
+}
+
+#step-title {
+	font-size: 1.5rem;
+	margin-bottom: 0.5rem;
+	font-weight: bold;
+}
+
+.hideen {
+	display: none;
+}
+
+form > div {
+	transition: all 500ms ease-out;
+	border-bottom: 1px solid white;
+	margin: 1rem;
+	margin-bottom: 1.5rem;
+	width: 15rem;
+	display: flex;
+	flex-direction: row;
+}
+
+form > div > img {
+	height: 20px;
+	text-align: center;
+	margin-left: 10px;
+}
+
+form > div > input,
+form > div > select {
+	border: none;
+	outline: none;
+	background: none;
+	color: white;
+	font-size: 18px;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-bottom: 5px;
+	display: inline-block;
+	appearance: none;
+	width: 100%;
+	border-radius: 0px;
+}
+
+form > div > select {
+	font: inherit;
+	padding-left: 2.5px;
+}
+
+form > div > select > option {
+	font: inherit;
+	color: black;
+	font-size: small;
+	margin-bottom: 0px;
+}
+
+form > div > input {
+	font: inherit;
+}
+
+form > div > input::placeholder {
+	color: rgba(255, 255, 255, 0.8);
+}
+
+#select_arrow {
+	position: relative;
+	top: 5px;
+	right: 10px;
+	width: 0px;
+	height: 0px;
+	border: solid rgba(255, 255, 255, 0.8);
+	border-width: 0 2px 2px 0;
+	display: inline-block;
+	padding: 2px;
+	transform: rotate(45deg);
+}
+
+form > div > select:hover ~ .select_arrow,
+form > div > select:focus ~ .select_arrow {
+	border-color: rgba(255, 255, 255, 0.5);
+}
+
+form > button {
+	font: inherit;
+	font-size: 20px;
+	color: white;
+	width: 75%;
+	border: 0px;
+	border-radius: 0.5rem;
+	background: rgb(82, 113, 255);
+	background: linear-gradient(
+		180deg,
+		rgb(82, 113, 255) 0%,
+		rgb(0, 74, 173) 100%
+	);
+	box-shadow: #333 0px 0px 5px;
+	padding: 0.65rem 0px;
+	cursor: pointer;
+	margin: 0px 1rem;
+}
+
+form > button:hover,
+form > button:focus {
+	background: linear-gradient(
+		180deg,
+		rgb(59, 180, 255) 0%,
+		rgb(82, 113, 255) 100%
+	);
+}
+
+#generated {
+	flex-direction: column;
+}
+
+pre {
+	margin: 0%;
+}
+
+footer {
+	margin-top: 20px;
+}
+
+footer > div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+}
+
+footer > p {
+	font-size: smaller;
+	color: rgba(255, 255, 255, 0.75);
+}
